@@ -1,5 +1,6 @@
 ---
 layout: post
+category: news
 title: "Hello, world"
 tags: [meta]
 ---

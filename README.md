@@ -10,6 +10,7 @@ Personal blog of Justin Sheen, built with Jekyll and served by GitHub Pages.
    ```
    ---
    layout: post
+   category: blog   # or: news  (decides which home-page tab it shows under)
    title: "Your title"
    tags: [causal-inference]
    math: true   # optional, enables LaTeX via MathJax
