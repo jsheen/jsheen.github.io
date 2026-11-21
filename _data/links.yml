@@ -1,6 +1,9 @@
-# Favorite websites shown in the Links tab, in the order listed.
-# Each item: name (the link text), url, and an optional note shown after it.
+# Favorite websites shown in the Links tab, alphabetized by link text
+# (ignoring leading quotes). Each item: name (the link text), url, and an
+# optional note shown after it.
 - name: Han Kang
   url: https://han-kang.net
+- name: Marc-Andre Leclerc
+  url: https://marcleclerc.blogspot.com/
 - name: '"What If?" by Kenneth Goldsmith'
   url: https://manifold.umn.edu/read/what-if/section/08898006-0712-4e18-8458-509211a09635
