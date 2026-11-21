@@ -2,7 +2,7 @@
 layout: post
 category: bike-share
 title: "Expansion of bike share programs in Boston"
-date: 2026-11-21 12:00:00 -0500
+date: 2026-11-21 09:00:00 -0500
 tags: [bike-share, boston]
 ---
 
