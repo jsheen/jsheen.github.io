@@ -44,7 +44,7 @@ blockquote { border-left: 2px solid var(--rule); margin-left: 0; padding-left: 1
 
 /* About */
 .about { display: flex; gap: 28px; align-items: flex-start; flex-wrap: wrap; }
-.avatar { width: 180px; height: auto; aspect-ratio: 3 / 4; border-radius: 0; object-fit: cover; }
+.avatar { width: 180px; height: auto; aspect-ratio: 49 / 50; border-radius: 0; object-fit: cover; }
 .about h1 { font-size: 1.25rem; margin: 0 0 10px; line-height: 1.4; letter-spacing: 0.03em; }
 .name-ko { margin: -6px 0 12px; font-family: var(--serif); font-size: 0.9rem; letter-spacing: 0.2em; color: var(--muted); }
 .interests { margin: 0; font-size: 0.88rem; color: var(--text); }
@@ -58,7 +58,7 @@ body.wide .wrap { max-width: 1040px; }
 .home { display: grid; grid-template-columns: minmax(220px, 280px) minmax(0, 1fr); gap: 48px; align-items: start; }
 .panel-about { position: sticky; top: 24px; }
 .panel-about .about { flex-direction: column; gap: 16px; }
-.panel-about .avatar { width: 165px; height: auto; }
+.panel-about .avatar { width: 190px; height: auto; }
 
 .tabs { display: flex; gap: 32px; border-bottom: 1px solid var(--rule); }
 .tab { background: none; border: 0; padding: 0 0 8px; margin-bottom: -1px; cursor: pointer; font-family: var(--serif); font-size: 0.95rem; font-weight: 400; letter-spacing: 0.08em; line-height: 1.2; color: var(--muted); border-bottom: 1px solid transparent; }
