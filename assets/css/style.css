@@ -60,6 +60,7 @@ body.wide .wrap { max-width: 1040px; }
 .panel-about { position: sticky; top: 24px; }
 .panel-about .about { flex-direction: column; gap: 16px; }
 .panel-about .avatar { width: 100%; max-width: 190px; height: auto; }
+.panel-about .about-body { max-width: 190px; }
 
 .tabs { display: flex; gap: 32px; border-bottom: 1px solid var(--rule); }
 .tab { background: none; border: 0; padding: 0 0 8px; margin-bottom: -1px; cursor: pointer; font-family: var(--serif); font-size: 0.95rem; font-weight: 400; letter-spacing: 0.08em; line-height: 1.2; color: var(--muted); border-bottom: 1px solid transparent; }
