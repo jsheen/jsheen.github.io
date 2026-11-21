@@ -10,6 +10,7 @@ Personal blog of Justin Sheen, built with Jekyll and served by GitHub Pages.
    ```
    ---
    layout: post
+   category: causal-inference   # or: public-health  (which Blog section it goes under)
    title: "Your title"
    tags: [causal-inference]
    math: true   # optional, enables LaTeX via MathJax
