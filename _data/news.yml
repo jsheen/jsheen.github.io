@@ -1,8 +1,6 @@
 # News items shown under Projects on the home page, newest first.
 # Each item: date (YYYY-MM-DD; only month and year are shown) and text.
 # Text can use Markdown, e.g. *italics* or [a link](https://example.com).
-- date: 2026-11-20
-  text: "First news post."
 - date: 2026-10-01
   text: "\"Challenges for the effectiveness of infectious disease interventions during global change\" published in *Communications Health*."
 - date: 2026-02-01
