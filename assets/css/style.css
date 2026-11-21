@@ -48,7 +48,8 @@ blockquote { border-left: 2px solid var(--rule); margin-left: 0; padding-left: 1
 .about h1 { font-size: 1.25rem; margin: 0 0 10px; line-height: 1.4; letter-spacing: 0.03em; }
 .name-ko { margin: -6px 0 12px; font-family: var(--serif); font-size: 0.9rem; letter-spacing: 0.2em; color: var(--muted); }
 .interests { margin: 0; font-family: var(--serif); font-size: 0.86rem; line-height: 1.95; color: var(--text); }
-.interests .nowrap { display: block; line-height: 1.7; }
+.interests { display: grid; grid-template-columns: repeat(2, max-content); column-gap: 22px; }
+.interests .nowrap { display: block; line-height: 1.7; white-space: nowrap; }
 .interests .dot { display: none; }
 .affil { margin: 10px 0 0; font-size: 0.75rem; letter-spacing: 0.14em; color: var(--accent); }
 .contact { list-style: none; padding: 0; margin: 18px 0 0; font-size: 0.76rem; }
