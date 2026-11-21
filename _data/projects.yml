@@ -5,6 +5,12 @@
 #   link:    URL the tile opens (optional)
 #   image:   picture to fill the tile, e.g. /assets/img/cartoons.jpg (optional)
 #   shape:   square or rectangle (rectangle is twice as wide); default square
+- title: "pixelMalariaPrediction"
+  caption: "pixelMalariaPrediction"
+  link: "https://github.com/jsheen/secVegDefo"
+  image: /assets/img/pixel-mosquito.svg
+  shape: square
+
 - title: "ThimbleTheater"
   caption: "ThimbleTheater"
   link: "https://thimbletheater.com/"
