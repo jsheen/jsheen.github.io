@@ -49,7 +49,7 @@ blockquote { border-left: 3px solid var(--rule); margin-left: 0; padding-left: 1
 
 /* Home: About (left) + News (right) */
 body.wide .wrap { max-width: 1100px; }
-.home { display: grid; grid-template-columns: minmax(240px, 320px) 1fr; gap: 56px; align-items: start; }
+.home { display: grid; grid-template-columns: minmax(240px, 320px) 1fr; gap: 32px; align-items: start; }
 .panel-about { position: sticky; top: 24px; }
 .panel-about .about { flex-direction: column; gap: 18px; }
 .panel-about .avatar { width: 140px; height: 140px; }
