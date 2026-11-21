@@ -50,8 +50,22 @@ body.wide .wrap { max-width: 1100px; }
 .panel-about .avatar { width: 140px; height: 140px; }
 .panel-about h1 { font-size: 1.5rem; }
 .panel-about .interests { font-size: 0.95rem; }
-.panel-title { margin-top: 0; font-size: 1.5rem; border-bottom: 1px solid var(--rule); padding-bottom: 8px; }
-.panel-news .post-list { margin-top: 24px; }
+.tab-panel .post-list { margin-top: 24px; }
+.project-grid { list-style: none; padding: 0; margin: 24px 0 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 20px; }
+.project-wide { grid-column: span 2; }
+.tile { position: relative; display: flex; align-items: flex-end; aspect-ratio: 1 / 1; padding: 16px; border: 1px solid var(--rule); border-radius: 8px; overflow: hidden; background: rgba(127,127,127,0.06); color: var(--text); transition: border-color .15s; }
+.project-wide .tile { aspect-ratio: auto; height: 100%; min-height: 180px; }
+a.tile:hover { border-color: var(--accent); text-decoration: none; }
+.tile img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.tile img + .tile-title { position: relative; color: #fff; text-shadow: 0 1px 4px rgba(0,0,0,.6); }
+.tile-title { font-size: 1.15rem; font-weight: bold; line-height: 1.25; }
+.tile-caption { margin: 8px 0 0; font-family: system-ui, sans-serif; font-size: 0.9rem; color: var(--muted); }
+@media (max-width: 480px) { .project-wide { grid-column: auto; } .project-wide .tile { aspect-ratio: 2 / 1; height: auto; min-height: 0; } }
+.tabs { display: flex; gap: 28px; border-bottom: 1px solid var(--rule); }
+.tab { background: none; border: 0; padding: 0 0 10px; margin-bottom: -1px; cursor: pointer; font: bold 1.5rem/1.2 Georgia, "Iowan Old Style", "Times New Roman", serif; color: var(--muted); border-bottom: 2px solid transparent; }
+.tab:hover { color: var(--text); }
+.tab[aria-selected="true"] { color: var(--text); border-bottom-color: var(--accent); }
+.tab:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; }
 @media (max-width: 760px) {
   .home { grid-template-columns: 1fr; gap: 32px; }
   .panel-about { position: static; }

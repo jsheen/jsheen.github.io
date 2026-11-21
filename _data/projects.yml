@@ -1,0 +1,11 @@
+# Projects shown as tiles on the home page, in this order.
+# Fields:
+#   title:   text shown inside the tile (required)
+#   caption: text shown underneath the tile (optional)
+#   link:    URL the tile opens (optional)
+#   image:   picture to fill the tile, e.g. /assets/img/cartoons.jpg (optional)
+#   shape:   square or rectangle (rectangle is twice as wide); default square
+- title: "Single-panel cartoons"
+  caption: "The New Yorker"
+  link: "https://www.justinsheencartoonist.com/"
+  shape: square

@@ -10,8 +10,27 @@ wide: true
     {% include about.html %}
   </aside>
 
-  <section class="panel panel-news">
-    <h2 class="panel-title">News</h2>
+  <div class="panel panel-main">
+  <div class="tabs" role="tablist" aria-label="Projects and news">
+    <button class="tab" role="tab" id="tab-projects" aria-controls="projects" aria-selected="true">Projects</button>
+    <button class="tab" role="tab" id="tab-news" aria-controls="news" aria-selected="false" tabindex="-1">News</button>
+  </div>
+
+  <section class="tab-panel" id="projects" role="tabpanel" aria-labelledby="tab-projects">
+    <ul class="project-grid">
+      {% for project in site.data.projects %}
+      <li class="project{% if project.shape == 'rectangle' %} project-wide{% endif %}">
+        {% if project.link %}<a class="tile" href="{{ project.link }}">{% else %}<div class="tile">{% endif %}
+          {% if project.image %}<img src="{{ project.image | relative_url }}" alt="">{% endif %}
+          <span class="tile-title">{{ project.title }}</span>
+        {% if project.link %}</a>{% else %}</div>{% endif %}
+        {% if project.caption %}<p class="tile-caption">{{ project.caption }}</p>{% endif %}
+      </li>
+      {% endfor %}
+    </ul>
+  </section>
+
+  <section class="tab-panel" id="news" role="tabpanel" aria-labelledby="tab-news" hidden>
     <ul class="post-list">
       {% for post in site.posts %}
       <li>
@@ -22,4 +41,32 @@ wide: true
       {% endfor %}
     </ul>
   </section>
+  </div>
 </div>
+
+<script>
+(function () {
+  var tabs = Array.prototype.slice.call(document.querySelectorAll('.tab'));
+  function select(tab, focus) {
+    tabs.forEach(function (t) {
+      var on = t === tab;
+      t.setAttribute('aria-selected', on);
+      t.tabIndex = on ? 0 : -1;
+      document.getElementById(t.getAttribute('aria-controls')).hidden = !on;
+    });
+    if (focus) tab.focus();
+  }
+  tabs.forEach(function (tab, i) {
+    tab.addEventListener('click', function () {
+      select(tab);
+      history.replaceState(null, '', '#' + tab.getAttribute('aria-controls'));
+    });
+    tab.addEventListener('keydown', function (e) {
+      var d = e.key === 'ArrowRight' ? 1 : e.key === 'ArrowLeft' ? -1 : 0;
+      if (d) { e.preventDefault(); select(tabs[(i + d + tabs.length) % tabs.length], true); }
+    });
+  });
+  var fromHash = document.getElementById('tab-' + location.hash.slice(1));
+  if (fromHash) select(fromHash);
+})();
+</script>
