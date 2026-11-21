@@ -99,8 +99,9 @@ a.tile:hover { opacity: .85; text-decoration: none; }
 .subtab[aria-selected="true"] { color: var(--text); border-bottom-color: var(--text); }
 .subtab:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
 .news-list { list-style: none; padding: 0; margin: 16px 0 0; font-size: 0.9rem; }
-.news-list li { margin-bottom: 10px; }
-.news-list .date { display: inline-block; min-width: 92px; color: var(--muted); font-size: 0.8rem; }
+.news-list li { margin-bottom: 10px; display: flex; gap: 8px; }
+.news-list .date { flex: none; }
+.news-list .date { display: inline-block; min-width: 72px; color: var(--muted); font-size: 0.8rem; }
 
 /* Photos */
 .collage { margin-top: 20px; display: grid; grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 10px; }
