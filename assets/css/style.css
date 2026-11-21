@@ -105,7 +105,7 @@ a.tile:hover { opacity: .85; text-decoration: none; }
 .news-list .date { display: inline-block; min-width: 62px; color: var(--muted); font-size: 0.75rem; }
 
 /* Photos */
-.collage { margin-top: 20px; display: grid; grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 10px; }
+.collage { margin-top: 20px; display: grid; grid-template-columns: repeat(auto-fill, 130px); gap: 8px; }
 .collage a { display: block; border-radius: 0; overflow: hidden; }
 .collage img { display: block; width: 100%; aspect-ratio: 3 / 4; object-fit: cover; transition: opacity .15s; }
 .collage a:hover img { opacity: .85; }
