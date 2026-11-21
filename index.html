@@ -13,7 +13,6 @@ wide: true
   <div class="panel panel-main">
   <div class="tabs" role="tablist" aria-label="Sections">
     <button class="tab" role="tab" id="tab-projects" aria-controls="projects" aria-selected="true">Projects</button>
-    <button class="tab" role="tab" id="tab-news" aria-controls="news" aria-selected="false" tabindex="-1">News</button>
     <button class="tab" role="tab" id="tab-blog" aria-controls="blog" aria-selected="false" tabindex="-1">Blog</button>
     <button class="tab" role="tab" id="tab-photos" aria-controls="photos" aria-selected="false" tabindex="-1">Photos</button>
   </div>
@@ -29,33 +28,26 @@ wide: true
       </li>
       {% endfor %}
     </ul>
-  </section>
 
-  {% assign news_count = 0 %}{% assign blog_count = 0 %}
-  <section class="tab-panel" id="news" role="tabpanel" aria-labelledby="tab-news" hidden>
-    <ul class="post-list">
-      {% for post in site.posts %}{% unless post.categories contains "blog" %}{% assign news_count = news_count | plus: 1 %}
-      <li>
-        <span class="date">{{ post.date | date: "%b %-d, %Y" }}</span>
-        <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
-        {% if post.excerpt %}<p class="excerpt">{{ post.excerpt | strip_html | truncatewords: 30 }}</p>{% endif %}
-      </li>
-      {% endunless %}{% endfor %}
+    <h2 class="section-title">News</h2>
+    <ul class="news-list">
+      {% for item in site.data.news %}
+      <li><span class="date">{{ item.date | date: "%b %-d, %Y" }}</span> {{ item.text | markdownify | remove: "<p>" | remove: "</p>" | strip }}</li>
+      {% endfor %}
     </ul>
-    {% if news_count == 0 %}<p class="excerpt">No news yet.</p>{% endif %}
   </section>
 
   <section class="tab-panel" id="blog" role="tabpanel" aria-labelledby="tab-blog" hidden>
     <ul class="post-list">
-      {% for post in site.posts %}{% if post.categories contains "blog" %}{% assign blog_count = blog_count | plus: 1 %}
+      {% for post in site.posts %}
       <li>
         <span class="date">{{ post.date | date: "%b %-d, %Y" }}</span>
         <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
         {% if post.excerpt %}<p class="excerpt">{{ post.excerpt | strip_html | truncatewords: 30 }}</p>{% endif %}
       </li>
-      {% endif %}{% endfor %}
+      {% endfor %}
     </ul>
-    {% if blog_count == 0 %}<p class="excerpt">No blog posts yet.</p>{% endif %}
+    {% if site.posts.size == 0 %}<p class="excerpt">No blog posts yet.</p>{% endif %}
   </section>
 
   <section class="tab-panel" id="photos" role="tabpanel" aria-labelledby="tab-photos" hidden>

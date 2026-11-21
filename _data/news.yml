@@ -1,0 +1,4 @@
+# News items shown under Projects on the home page, newest first.
+# Each item: date (YYYY-MM-DD) and text. Text can use Markdown, e.g. [a link](https://example.com).
+- date: 2026-11-20
+  text: "First news post."
