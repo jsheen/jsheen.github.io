@@ -2,6 +2,7 @@
 layout: default
 title: Home
 wide: true
+math: true
 ---
 <img class="header-img" src="{{ '/assets/img/header.jpg' | relative_url }}" alt="Red maple in autumn">
 
@@ -46,17 +47,13 @@ wide: true
       <button class="subtab" role="tab" aria-selected="false" aria-controls="blog-health" tabindex="-1">Public health</button>
     </div>
 
-    <ul class="post-list subtab-panel" id="blog-causal" role="tabpanel">
-      {% for post in causal %}
-      <li><span class="date">{{ post.date | date: "%b %-d, %Y" }}</span><a href="{{ post.url | relative_url }}">{{ post.title }}</a></li>
-      {% endfor %}
-    </ul>
+    <div class="subtab-panel" id="blog-causal" role="tabpanel">
+      {% include post-groups.html posts=causal %}
+    </div>
 
-    <ul class="post-list subtab-panel" id="blog-health" role="tabpanel" hidden>
-      {% for post in health %}
-      <li><span class="date">{{ post.date | date: "%b %-d, %Y" }}</span><a href="{{ post.url | relative_url }}">{{ post.title }}</a></li>
-      {% endfor %}
-    </ul>
+    <div class="subtab-panel" id="blog-health" role="tabpanel" hidden>
+      {% include post-groups.html posts=health %}
+    </div>
   </section>
 
   <section class="tab-panel" id="photos" role="tabpanel" aria-labelledby="tab-photos" hidden>
@@ -99,6 +96,29 @@ wide: true
   });
   var fromHash = document.getElementById('tab-' + location.hash.slice(1));
   if (fromHash) select(fromHash);
+
+  // typeset math when a post is expanded
+  document.querySelectorAll('details.post-item').forEach(function (d) {
+    d.addEventListener('toggle', function () {
+      if (d.open && window.MathJax && MathJax.typesetPromise && !d.dataset.typeset) {
+        d.dataset.typeset = '1';
+        MathJax.typesetPromise([d]);
+      }
+    });
+  });
+  // open a post linked as #post-slug
+  var linked = location.hash && document.getElementById(location.hash.slice(1));
+  if (linked && linked.tagName === 'DETAILS') {
+    select(document.getElementById('tab-blog'));
+    var panel = linked.closest('.subtab-panel');
+    document.querySelectorAll('.subtab').forEach(function (o) {
+      var on = o.getAttribute('aria-controls') === panel.id;
+      o.setAttribute('aria-selected', on); o.tabIndex = on ? 0 : -1;
+      document.getElementById(o.getAttribute('aria-controls')).hidden = !on;
+    });
+    linked.open = true;
+    linked.scrollIntoView();
+  }
 
   var subtabs = Array.prototype.slice.call(document.querySelectorAll('.subtab'));
   subtabs.forEach(function (st) {

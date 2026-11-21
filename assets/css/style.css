@@ -79,6 +79,17 @@ a.tile:hover { opacity: .85; text-decoration: none; }
 @media (max-width: 480px) { .project-wide { grid-column: auto; } .project-wide .tile { aspect-ratio: 2 / 1; height: auto; min-height: 0; } }
 
 .section-title { margin: 44px 0 0; padding-bottom: 8px; border-bottom: 1px solid var(--text); font-size: 0.95rem; font-weight: 500; }
+.post-day { margin-top: 22px; }
+.post-day > .date { margin: 0 0 6px; color: var(--muted); font-size: 0.8rem; }
+.post-item { border-bottom: 1px solid var(--rule); }
+.post-item summary { list-style: none; cursor: pointer; padding: 7px 0; font-weight: 500; color: var(--accent); }
+.post-item summary::-webkit-details-marker { display: none; }
+.post-item summary::after { content: "+"; float: right; color: var(--muted); font-weight: 400; }
+.post-item[open] summary::after { content: "\2212"; }
+.post-item summary:hover { text-decoration: underline; }
+.post-body { padding: 4px 0 20px; font-size: 0.92rem; }
+.post-body > h2:first-child { margin-top: 8px; }
+.permalink { margin-top: 20px; font-size: 0.8rem; }
 .subtabs { display: flex; gap: 18px; margin-top: 16px; }
 .subtab { font-family: inherit; font-size: 0.85rem; padding: 0 0 3px; border: 0; border-bottom: 1px solid transparent; background: none; color: var(--muted); cursor: pointer; }
 .subtab:hover { color: var(--text); }

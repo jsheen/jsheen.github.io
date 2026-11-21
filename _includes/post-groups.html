@@ -1,0 +1,18 @@
+{% comment %} Lists posts grouped by day; each post expands in place. Pass posts=... {% endcomment %}
+{% assign groups = include.posts | group_by_exp: "p", "p.date | date: '%b %-d, %Y'" %}
+{% for g in groups %}
+<div class="post-day">
+  <p class="date">{{ g.name }}</p>
+  {% for post in g.items %}
+  {% assign id_from = 'id="ref-' %}{% assign id_to = 'id="' | append: post.slug | append: '-ref-' %}
+  {% assign href_from = 'href="#ref-' %}{% assign href_to = 'href="#' | append: post.slug | append: '-ref-' %}
+  <details class="post-item" id="{{ post.slug }}">
+    <summary>{{ post.title }}</summary>
+    <div class="post post-body">
+      {{ post.content | replace: id_from, id_to | replace: href_from, href_to }}
+      <p class="permalink"><a href="{{ post.url | relative_url }}">Open as its own page</a></p>
+    </div>
+  </details>
+  {% endfor %}
+</div>
+{% endfor %}
