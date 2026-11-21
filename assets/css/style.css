@@ -50,7 +50,7 @@ blockquote { border-left: 2px solid var(--rule); margin-left: 0; padding-left: 1
 .interests { margin: 0; font-family: var(--serif); font-size: 0.86rem; line-height: 1.95; color: var(--text); }
 .interests .dot { color: var(--muted); }
 .affil { margin: 10px 0 0; font-size: 0.75rem; letter-spacing: 0.14em; color: var(--accent); }
-.contact { list-style: none; padding: 0; margin: 18px 0 0; font-size: 0.85rem; }
+.contact { list-style: none; padding: 0; margin: 18px 0 0; font-size: 0.76rem; }
 .contact li { margin-bottom: 2px; word-break: break-all; }
 
 /* Home: About (left) + tabs (right) */
