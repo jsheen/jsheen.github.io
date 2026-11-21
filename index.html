@@ -14,6 +14,7 @@ wide: true
   <div class="tabs" role="tablist" aria-label="Projects and news">
     <button class="tab" role="tab" id="tab-projects" aria-controls="projects" aria-selected="true">Projects</button>
     <button class="tab" role="tab" id="tab-news" aria-controls="news" aria-selected="false" tabindex="-1">News</button>
+    <button class="tab" role="tab" id="tab-photos" aria-controls="photos" aria-selected="false" tabindex="-1">Photos</button>
   </div>
 
   <section class="tab-panel" id="projects" role="tabpanel" aria-labelledby="tab-projects">
@@ -39,6 +40,20 @@ wide: true
       </li>
       {% endfor %}
     </ul>
+  </section>
+
+  <section class="tab-panel" id="photos" role="tabpanel" aria-labelledby="tab-photos" hidden>
+    {% assign photo_exts = ".jpg,.jpeg,.png,.webp,.gif,.avif" | split: "," %}
+    {% assign photos = site.static_files | where_exp: "f", "f.path contains '/assets/photos/'" | sort: "path" | reverse %}
+    <div class="collage">
+      {% for photo in photos %}
+      {% assign ext = photo.extname | downcase %}
+      {% if photo_exts contains ext %}
+      <a href="{{ photo.path | relative_url }}"><img src="{{ photo.path | relative_url }}" alt="" loading="lazy"></a>
+      {% endif %}
+      {% endfor %}
+    </div>
+    {% if photos.size == 0 %}<p class="excerpt">No photos yet.</p>{% endif %}
   </section>
   </div>
 </div>
