@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600" width="600" height="600" role="img" aria-label="Red pushpin">
   <rect width="600" height="600" fill="#fff4ee"/>
-  <g transform="translate(286.5 305.5) scale(2.4) translate(-98 -94)">
+  <g transform="translate(302 305.5) scale(2.4) translate(-98 -94)">
     <line x1="80" y1="112" x2="54" y2="164" stroke="#9aa0a8" stroke-width="7" stroke-linecap="round"/>
     <rect x="47" y="102" width="66" height="19" rx="7" fill="#c8202f" transform="rotate(32 80 111.5)"/>
     <circle cx="112" cy="62" r="46" fill="#ef3b4a"/>
