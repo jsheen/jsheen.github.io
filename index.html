@@ -21,8 +21,7 @@ wide: true
       {% for project in site.data.projects %}
       <li class="project{% if project.shape == 'rectangle' %} project-wide{% endif %}">
         {% if project.link %}<a class="tile" href="{{ project.link }}">{% else %}<div class="tile">{% endif %}
-          {% if project.image %}<img src="{{ project.image | relative_url }}" alt="">{% endif %}
-          <span class="tile-title">{{ project.title }}</span>
+          {% if project.image %}<img src="{{ project.image | relative_url }}" alt="{{ project.title }}">{% else %}<span class="tile-title">{{ project.title }}</span>{% endif %}
         {% if project.link %}</a>{% else %}</div>{% endif %}
         {% if project.caption %}<p class="tile-caption">{{ project.caption }}</p>{% endif %}
       </li>
