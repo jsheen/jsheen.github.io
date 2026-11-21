@@ -1,0 +1,4 @@
+# Favorite websites shown in the Links tab, in the order listed.
+# Each item: name (the link text), url, and an optional note shown after it.
+- name: Han Kang
+  url: https://han-kang.net
