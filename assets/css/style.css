@@ -55,7 +55,7 @@ blockquote { border-left: 2px solid var(--rule); margin-left: 0; padding-left: 1
 /* Home: About (left) + tabs (right) */
 body.wide .wrap { max-width: 1040px; }
 .header-img { display: block; width: 100%; aspect-ratio: 5 / 1; object-fit: cover; border-radius: 4px; margin-bottom: 40px; }
-.home { display: grid; grid-template-columns: minmax(220px, 280px) 1fr; gap: 32px; align-items: start; }
+.home { display: grid; grid-template-columns: minmax(220px, 280px) minmax(0, 1fr); gap: 32px; align-items: start; }
 .panel-about { position: sticky; top: 24px; }
 .panel-about .about { flex-direction: column; gap: 16px; }
 .panel-about .avatar { width: 120px; height: 120px; }
@@ -87,7 +87,9 @@ a.tile:hover { opacity: .85; text-decoration: none; }
 .post-item summary::after { content: "+"; float: right; color: var(--muted); font-weight: 400; }
 .post-item[open] summary::after { content: "\2212"; }
 .post-item summary:hover { text-decoration: underline; }
-.post-body { padding: 4px 0 20px; font-size: 0.92rem; }
+.post-body { padding: 4px 0 20px; font-size: 0.92rem; overflow-wrap: anywhere; }
+.post mjx-container[display="true"] { overflow-x: auto; overflow-y: hidden; max-width: 100%; }
+.panel-main { min-width: 0; }
 .post-body > h2:first-child { margin-top: 8px; }
 .permalink { margin-top: 20px; font-size: 0.8rem; }
 .subtabs { display: flex; gap: 18px; margin-top: 16px; }

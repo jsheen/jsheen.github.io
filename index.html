@@ -3,6 +3,7 @@ layout: default
 title: Home
 wide: true
 math: true
+lazy_math: true   # posts are typeset when expanded, not while hidden
 ---
 <img class="header-img" src="{{ '/assets/img/header.jpg' | relative_url }}" alt="Red maple in autumn">
 
@@ -100,9 +101,9 @@ math: true
   // typeset math when a post is expanded
   document.querySelectorAll('details.post-item').forEach(function (d) {
     d.addEventListener('toggle', function () {
-      if (d.open && window.MathJax && MathJax.typesetPromise && !d.dataset.typeset) {
+      if (d.open && !d.dataset.typeset && window.MathJax && MathJax.startup && MathJax.startup.promise) {
         d.dataset.typeset = '1';
-        MathJax.typesetPromise([d]);
+        MathJax.startup.promise.then(function () { return MathJax.typesetPromise([d]); });
       }
     });
   });
