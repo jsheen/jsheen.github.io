@@ -41,15 +41,18 @@ wide: true
     {% assign causal = site.posts | where: "category", "causal-inference" | reverse %}
     {% assign health = site.posts | where: "category", "public-health" %}
 
-    <h2 class="section-title first">Causal inference</h2>
-    <ul class="post-list">
+    <div class="subtabs" role="tablist" aria-label="Blog topics">
+      <button class="subtab" role="tab" aria-selected="true" aria-controls="blog-causal">Causal inference</button>
+      <button class="subtab" role="tab" aria-selected="false" aria-controls="blog-health" tabindex="-1">Public health</button>
+    </div>
+
+    <ul class="post-list subtab-panel" id="blog-causal" role="tabpanel">
       {% for post in causal %}
       <li><span class="date">{{ post.date | date: "%b %-d, %Y" }}</span><a href="{{ post.url | relative_url }}">{{ post.title }}</a></li>
       {% endfor %}
     </ul>
 
-    <h2 class="section-title">Public health</h2>
-    <ul class="post-list">
+    <ul class="post-list subtab-panel" id="blog-health" role="tabpanel" hidden>
       {% for post in health %}
       <li><span class="date">{{ post.date | date: "%b %-d, %Y" }}</span><a href="{{ post.url | relative_url }}">{{ post.title }}</a></li>
       {% endfor %}
@@ -96,5 +99,17 @@ wide: true
   });
   var fromHash = document.getElementById('tab-' + location.hash.slice(1));
   if (fromHash) select(fromHash);
+
+  var subtabs = Array.prototype.slice.call(document.querySelectorAll('.subtab'));
+  subtabs.forEach(function (st) {
+    st.addEventListener('click', function () {
+      subtabs.forEach(function (o) {
+        var on = o === st;
+        o.setAttribute('aria-selected', on);
+        o.tabIndex = on ? 0 : -1;
+        document.getElementById(o.getAttribute('aria-controls')).hidden = !on;
+      });
+    });
+  });
 })();
 </script>
