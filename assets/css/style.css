@@ -16,13 +16,8 @@ body {
 .wrap { max-width: 720px; margin: 0 auto; padding: 0 20px; }
 a { color: var(--accent); text-decoration: none; }
 a:hover { text-decoration: underline; }
+main { padding-top: 40px; }
 
-.site-header { border-bottom: 1px solid var(--rule); padding: 22px 0; margin-bottom: 36px; }
-.site-header .wrap { display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: 10px; }
-.site-title { font-size: 1.35rem; font-weight: bold; color: var(--text); }
-nav a { margin-left: 20px; color: var(--muted); font-family: system-ui, sans-serif; font-size: 0.95rem; }
-nav a:first-child { margin-left: 0; }
-nav a.active { color: var(--text); border-bottom: 2px solid var(--accent); }
 
 .tagline { color: var(--muted); font-style: italic; margin-bottom: 32px; }
 .post-list { list-style: none; padding: 0; }
