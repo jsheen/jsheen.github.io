@@ -1,13 +1,11 @@
 :root {
+  color-scheme: light;
   --text: #2b2823;     /* sumi ink */
   --muted: #8c8478;
   --accent: #4f6f52;   /* muted pine green */
   --rule: #ebe5da;
   --bg: #fcfaf5;       /* cream white */
   --serif: "Noto Serif KR", "Noto Serif JP", "Hiragino Mincho ProN", "Yu Mincho", Georgia, serif;
-}
-@media (prefers-color-scheme: dark) {
-  :root { --text: #e8e2d6; --muted: #9c9486; --accent: #9bbf9d; --rule: #34302a; --bg: #1c1a17; }
 }
 * { box-sizing: border-box; }
 body {
