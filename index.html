@@ -8,16 +8,13 @@ lazy_math: true   # posts are typeset when expanded, not while hidden
 <img class="header-img" src="{{ '/assets/img/header.jpg' | relative_url }}" alt="Red maple in autumn">
 
 <div class="home">
-  <aside class="panel panel-about">
-    {% include about.html %}
-  </aside>
-
   <div class="panel panel-main">
   <div class="tabs" role="tablist" aria-label="Sections">
     <button class="tab" role="tab" id="tab-projects" aria-controls="projects" aria-selected="true">Projects</button>
     <button class="tab" role="tab" id="tab-blog" aria-controls="blog" aria-selected="false" tabindex="-1">Blog</button>
     <button class="tab" role="tab" id="tab-photos" aria-controls="photos" aria-selected="false" tabindex="-1">Photos</button>
     <button class="tab" role="tab" id="tab-links" aria-controls="links" aria-selected="false" tabindex="-1">Links</button>
+    <button class="tab tab-end" role="tab" id="tab-bio" aria-controls="bio" aria-selected="false" tabindex="-1">Bio</button>
   </div>
 
   <section class="tab-panel" id="projects" role="tabpanel" aria-labelledby="tab-projects">
@@ -27,7 +24,7 @@ lazy_math: true   # posts are typeset when expanded, not while hidden
         {% if project.link %}<a class="tile" href="{{ project.link }}">{% else %}<div class="tile">{% endif %}
           {% if project.image %}<img src="{{ project.image | relative_url }}" alt="{{ project.title }}">{% else %}<span class="tile-title">{{ project.title }}</span>{% endif %}
         {% if project.link %}</a>{% else %}</div>{% endif %}
-        {% if project.caption %}<p class="tile-caption">{{ project.caption }}</p>{% endif %}
+        {% if project.caption %}<p class="tile-caption" title="{{ project.caption }}">{{ project.caption }}</p>{% endif %}
       </li>
       {% endfor %}
     </ul>
@@ -76,6 +73,10 @@ lazy_math: true   # posts are typeset when expanded, not while hidden
       <button class="lb-btn lb-next" type="button" aria-label="Next photo">&#8250;</button>
       <button class="lb-btn lb-close" type="button" aria-label="Close">&times;</button>
     </dialog>
+  </section>
+
+  <section class="tab-panel" id="bio" role="tabpanel" aria-labelledby="tab-bio" hidden>
+    {% include about.html %}
   </section>
 
   <section class="tab-panel" id="links" role="tabpanel" aria-labelledby="tab-links" hidden>
