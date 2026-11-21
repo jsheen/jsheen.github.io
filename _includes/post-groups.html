@@ -1,6 +1,7 @@
 {% comment %}
   The blog feed: newest day first, and in posting order within a day. Pass posts=... (newest first, e.g. site.posts).
-  Each post shows its date, topic and a preview (its `summary:` front matter, or else its opening words) and expands
+  Each post shows its date, topic and a preview (its `summary:` front matter if it has one,
+  otherwise its section headings joined with commas, or else its opening words) and expands
   in place on "Read more". A short post with no summary (a link to read, say) is shown in full with nothing to expand.
 {% endcomment %}
 {% assign groups = include.posts | group_by_exp: "p", "p.date | date: '%Y-%m-%d'" %}
@@ -12,6 +13,19 @@
   {% assign words = post.content | strip_html | number_of_words %}
   {% capture meta %}<span class="post-meta"><time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%b %-d, %Y" }}</time>{% if topic %} · {{ topic.name }}{% endif %}</span>{% endcapture %}
   <li class="post-entry" data-category="{{ post.category }}">
+  {% comment %} Outline: the post's section headings (h2/h3, minus Introduction and References), joined with commas. {% endcomment %}
+  {% assign outline = "" %}
+  {% assign heads = post.content | replace: '<h3', '<h2' | split: '<h2' %}
+  {% for h in heads offset: 1 %}
+    {% assign name = h | split: '</h' | first | prepend: '<h2' | strip_html | strip %}
+    {% if name == "Introduction" or name == "References" or name == "" %}{% continue %}{% endif %}
+    {% if outline == "" %}{% assign outline = name %}{% else %}
+      {% assign first_letter = name | slice: 0 %}{% assign second = name | slice: 1 %}{% assign rest = name | slice: 1, 500 %}
+      {% assign second_lower = second | downcase %}{% if second == second_lower %}{% assign first_letter = first_letter | downcase %}{% endif %}
+      {% assign outline = outline | append: ", " | append: first_letter | append: rest %}
+    {% endif %}
+  {% endfor %}
+  {% if outline != "" %}{% assign outline = outline | append: "." %}{% endif %}
   {% if post.summary or words > 40 %}
   {% assign id_from = 'id="ref-' %}{% assign id_to = 'id="' | append: post.slug | append: '-ref-' %}
   {% assign href_from = 'href="#ref-' %}{% assign href_to = 'href="#' | append: post.slug | append: '-ref-' %}
@@ -19,7 +33,7 @@
     <summary>
       {{ meta }}
       <span class="post-title">{{ post.title }}</span>
-      <span class="post-excerpt">{% if post.summary %}{{ post.summary }}{% else %}{{ post.content | strip_html | truncatewords: 32 }}{% endif %}</span>
+      <span class="post-excerpt">{% if post.summary %}{{ post.summary | markdownify | remove: '<p>' | remove: '</p>' | strip }}{% elsif outline != "" %}{{ outline }}{% else %}{{ post.content | strip_html | truncatewords: 32 }}{% endif %}</span>
       <span class="read-more">Read more</span>
     </summary>
     <div class="post post-body">

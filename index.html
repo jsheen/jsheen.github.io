@@ -143,6 +143,15 @@ lazy_math: true   # posts are typeset when expanded, not while hidden
     });
   });
 
+  // previews are shown from the start, so typeset their math once MathJax has loaded
+  window.addEventListener('load', function () {
+    if (window.MathJax && MathJax.startup && MathJax.startup.promise) {
+      MathJax.startup.promise.then(function () {
+        return MathJax.typesetPromise(Array.prototype.slice.call(document.querySelectorAll('.post-excerpt')));
+      });
+    }
+  });
+
   // open a post linked as #post-slug
   var linked = location.hash && document.getElementById(location.hash.slice(1));
   if (linked && linked.classList.contains('post-item')) {

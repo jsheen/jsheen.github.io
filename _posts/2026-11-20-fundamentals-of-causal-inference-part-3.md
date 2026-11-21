@@ -2,7 +2,6 @@
 layout: post
 category: causal-inference
 title: "Fundamentals of causal inference: part 3"
-summary: "How observational studies differ from randomized trials, matching, analyzing matched data, and propensity scores."
 date: 2026-11-20 09:02:00 -0500
 tags: [causal-inference]
 math: true

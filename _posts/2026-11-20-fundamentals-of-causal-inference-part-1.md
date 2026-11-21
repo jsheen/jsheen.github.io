@@ -2,7 +2,6 @@
 layout: post
 category: causal-inference
 title: "Fundamentals of causal inference: part 1"
-summary: "Why I became interested in causal inference, and the basics: potential outcomes, the core causal assumptions, and incident user and active comparator designs."
 date: 2026-11-20 09:00:00 -0500
 tags: [causal-inference]
 math: true
