@@ -52,8 +52,8 @@ blockquote { border-left: 2px solid var(--rule); margin-left: 0; padding-left: 1
 .interests .nowrap { display: block; line-height: 1.7; white-space: nowrap; }
 .interests .dot { display: none; }
 .affil { margin: 10px 0 0; font-size: 0.75rem; letter-spacing: 0.14em; color: var(--accent); }
-.contact { list-style: none; padding: 0; margin: 18px 0 0; font-size: 0.76rem; }
-.contact li { margin-bottom: 2px; word-break: break-all; }
+.contact { list-style: none; padding: 12px 0 0; margin: 14px 0 0; border-top: 1px solid var(--rule); font-size: 0.76rem; display: grid; grid-template-columns: repeat(2, max-content); column-gap: 22px; row-gap: 4px; letter-spacing: 0.02em; }
+.contact li { white-space: nowrap; }
 
 /* Home: tabs */
 .header-img { display: block; width: 100%; aspect-ratio: 5 / 2; object-fit: cover; border-radius: 0; margin-bottom: 16px; }
