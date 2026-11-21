@@ -72,9 +72,9 @@ a.tile:hover { opacity: .85; text-decoration: none; }
 @media (max-width: 480px) { .project-wide { grid-column: auto; } .project-wide .tile { aspect-ratio: 2 / 1; height: auto; min-height: 0; } }
 
 /* Photos */
-.collage { margin-top: 20px; columns: 3 180px; column-gap: 10px; }
-.collage a { display: block; margin-bottom: 10px; break-inside: avoid; border-radius: 3px; overflow: hidden; }
-.collage img { display: block; width: 100%; height: auto; transition: opacity .15s; }
+.collage { margin-top: 20px; display: grid; grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 10px; }
+.collage a { display: block; border-radius: 3px; overflow: hidden; }
+.collage img { display: block; width: 100%; aspect-ratio: 3 / 4; object-fit: cover; transition: opacity .15s; }
 .collage a:hover img { opacity: .85; }
 
 @media (max-width: 760px) {

@@ -24,7 +24,7 @@ Images (e.g. cartoons) go in `assets/img/` and are embedded with `![caption](/as
 
 - `index.html`: home page: About panel (left), Projects and News (right)
 - `_data/projects.yml`: list of projects shown on the home page
-- `assets/photos/`: drop .jpg/.png/.webp photos here and they appear in the Photos tab collage (newest filename first)
+- `assets/photos/`: drop .jpg/.png/.webp photos here and they appear in the Photos tab collage (sorted by filename, newest first: name them YYYY-MM-DD-something.jpg)
 - `_includes/about.html`: About content (shared by the home page and `/about/`)
 - `about.md`: standalone About page (kept so old /about/ links still work)
 - `_layouts/`: page templates
