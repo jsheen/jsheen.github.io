@@ -7,7 +7,7 @@ author: Justin Sheen
 github_username: jsheen
 scholar_url: "https://scholar.google.com/citations?user=BGRMtWEAAAAJ&hl=en"
 linkedin_url: "https://www.linkedin.com/in/justin-sheen-6a28b1421/"
-email_display: "justinksheen [at] gmail [dot] com"
+email: "justinksheen@gmail.com"
 
 permalink: /blog/:year/:month/:day/:title/
 markdown: kramdown
