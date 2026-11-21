@@ -3,9 +3,9 @@
 # Text can use Markdown, e.g. *italics* or [a link](https://example.com).
 - date: 2026-10-01
   text: "\"Challenges for the effectiveness of infectious disease interventions during global change\" published in *Communications Health*."
+- date: 2026-09-01
+  text: "Semifinalist, 2026 Rising Stars in Data Science Workshop, University of Chicago."
 - date: 2026-02-01
   text: "\"Characterizing Newcastle disease virus transmission dynamics and the impact of vaccination in village settings\" published in *Proceedings of the Royal Society B: Biological Sciences*."
-- date: 2025-09-01
-  text: "Semifinalist, 2026 Rising Stars in Data Science Workshop, University of Chicago."
 - date: 2025-08-01
   text: "Started postdoctoral position to work on malaria hotspot prediction, Department of Global Health and Population, Harvard University."
