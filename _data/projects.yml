@@ -5,6 +5,12 @@
 #   link:    URL the tile opens (optional)
 #   image:   picture to fill the tile, e.g. /assets/img/cartoons.jpg (optional)
 #   shape:   square or rectangle (rectangle is twice as wide); default square
+- title: "PushPin"
+  caption: "PushPin"
+  link: "https://github.com/jsheen/PushPin"
+  image: /assets/img/pushpin-snowman.jpg
+  shape: square
+
 - title: "Single-panel cartoons"
   caption: "The New Yorker"
   link: "https://www.justinsheencartoonist.com/"
