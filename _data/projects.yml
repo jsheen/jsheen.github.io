@@ -5,6 +5,12 @@
 #   link:    URL the tile opens (optional)
 #   image:   picture to fill the tile, e.g. /assets/img/cartoons.jpg (optional)
 #   shape:   square or rectangle (rectangle is twice as wide); default square
+- title: "ThimbleTheater"
+  caption: "ThimbleTheater"
+  link: "https://thimbletheater.com/"
+  image: /assets/img/thimble.svg
+  shape: square
+
 - title: "GamesFamilyConvert"
   caption: "GamesFamilyConvert"
   link: "https://github.com/jsheen/GamesFamilyConvert"
