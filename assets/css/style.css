@@ -55,10 +55,10 @@ blockquote { border-left: 2px solid var(--rule); margin-left: 0; padding-left: 1
 /* Home: About (left) + tabs (right) */
 body.wide .wrap { max-width: 1040px; }
 .header-img { display: block; width: 100%; aspect-ratio: 5 / 1; object-fit: cover; border-radius: 0; margin-bottom: 56px; }
-.home { display: grid; grid-template-columns: minmax(220px, 280px) minmax(0, 1fr); gap: 48px; align-items: start; }
+.home { display: grid; grid-template-columns: minmax(190px, 230px) minmax(0, 1fr); gap: 48px; align-items: start; }
 .panel-about { position: sticky; top: 24px; }
 .panel-about .about { flex-direction: column; gap: 16px; }
-.panel-about .avatar { width: 190px; height: auto; }
+.panel-about .avatar { width: 100%; max-width: 190px; height: auto; }
 
 .tabs { display: flex; gap: 32px; border-bottom: 1px solid var(--rule); }
 .tab { background: none; border: 0; padding: 0 0 8px; margin-bottom: -1px; cursor: pointer; font-family: var(--serif); font-size: 0.95rem; font-weight: 400; letter-spacing: 0.08em; line-height: 1.2; color: var(--muted); border-bottom: 1px solid transparent; }
