@@ -1,18 +1,40 @@
-{% comment %} Lists posts grouped by day; each post expands in place. Pass posts=... {% endcomment %}
-{% assign groups = include.posts | group_by_exp: "p", "p.date | date: '%b %-d, %Y'" %}
+{% comment %}
+  The blog feed: newest day first, and in posting order within a day. Pass posts=... (newest first, e.g. site.posts).
+  Each post shows its date, topic and a preview (its `summary:` front matter, or else its opening words) and expands
+  in place on "Read more". A short post with no summary (a link to read, say) is shown in full with nothing to expand.
+{% endcomment %}
+{% assign groups = include.posts | group_by_exp: "p", "p.date | date: '%Y-%m-%d'" %}
+<ol class="post-feed">
 {% for g in groups %}
-<div class="post-day">
-  <p class="date">{{ g.name }}</p>
-  {% for post in g.items %}
+{% assign day_posts = g.items | reverse %}
+{% for post in day_posts %}
+  {% assign topic = site.data.blog_categories | where: "id", post.category | first %}
+  {% assign words = post.content | strip_html | number_of_words %}
+  {% capture meta %}<span class="post-meta"><time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%b %-d, %Y" }}</time>{% if topic %} · {{ topic.name }}{% endif %}</span>{% endcapture %}
+  <li class="post-entry" data-category="{{ post.category }}">
+  {% if post.summary or words > 40 %}
   {% assign id_from = 'id="ref-' %}{% assign id_to = 'id="' | append: post.slug | append: '-ref-' %}
   {% assign href_from = 'href="#ref-' %}{% assign href_to = 'href="#' | append: post.slug | append: '-ref-' %}
   <details class="post-item" id="{{ post.slug }}">
-    <summary>{{ post.title }}</summary>
+    <summary>
+      {{ meta }}
+      <span class="post-title">{{ post.title }}</span>
+      <span class="post-excerpt">{% if post.summary %}{{ post.summary }}{% else %}{{ post.content | strip_html | truncatewords: 32 }}{% endif %}</span>
+      <span class="read-more">Read more</span>
+    </summary>
     <div class="post post-body">
       {{ post.content | replace: id_from, id_to | replace: href_from, href_to }}
-      <p class="permalink"><a href="{{ post.url | relative_url }}">Open as its own page</a></p>
+      <p class="post-foot"><button class="show-less" type="button">Show less</button><a href="{{ post.url | relative_url }}">Open as its own page</a></p>
     </div>
   </details>
-  {% endfor %}
-</div>
+  {% else %}
+  <div class="post-item post-short" id="{{ post.slug }}">
+    {{ meta }}
+    <span class="post-title">{{ post.title }}</span>
+    <div class="post-short-body">{{ post.content }}</div>
+  </div>
+  {% endif %}
+  </li>
 {% endfor %}
+{% endfor %}
+</ol>

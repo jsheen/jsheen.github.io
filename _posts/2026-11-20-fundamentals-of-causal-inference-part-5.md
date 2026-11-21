@@ -2,6 +2,7 @@
 layout: post
 category: causal-inference
 title: "Fundamentals of causal inference: part 5"
+summary: "Instrumental variables: randomized trials with noncompliance, compliance classes, identifying causal effects, and two-stage least squares."
 date: 2026-11-20 09:04:00 -0500
 tags: [causal-inference]
 math: true

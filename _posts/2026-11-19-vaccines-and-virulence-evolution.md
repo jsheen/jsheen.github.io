@@ -2,7 +2,8 @@
 layout: post
 category: public-health
 title: "Vaccines and virulence evolution"
-date: 2026-11-20 09:05:00 -0500
+summary: "How \"the switch\" in oral polio vaccines in 2016 led to outbreaks of vaccine-derived poliovirus, why imperfect vaccines can shape the evolution of virulence, and how transmission modeling and phylogenomics can help untangle the eco-evolutionary picture."
+date: 2026-11-19 09:05:00 -0500
 tags: [vaccines, evolution]
 ---
 

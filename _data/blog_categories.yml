@@ -1,0 +1,8 @@
+# Blog subsections (shown alphabetically by name at the top of the Blog tab).
+# id matches a post's `category:` front matter; name is what readers see.
+- id: causal-inference
+  name: Causal inference
+- id: public-health
+  name: Public health
+- id: bike-share
+  name: Bike share

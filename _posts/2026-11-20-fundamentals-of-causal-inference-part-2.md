@@ -2,6 +2,7 @@
 layout: post
 category: causal-inference
 title: "Fundamentals of causal inference: part 2"
+summary: "Confounding, reading independence relationships off causal graphs (DAGs), and deciding which variables to control for."
 date: 2026-11-20 09:01:00 -0500
 tags: [causal-inference]
 math: true

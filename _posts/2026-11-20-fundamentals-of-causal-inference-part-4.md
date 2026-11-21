@@ -2,6 +2,7 @@
 layout: post
 category: causal-inference
 title: "Fundamentals of causal inference: part 4"
+summary: "Inverse probability of treatment weighting, marginal structural models, choosing weights, and doubly robust estimators."
 date: 2026-11-20 09:03:00 -0500
 tags: [causal-inference]
 math: true

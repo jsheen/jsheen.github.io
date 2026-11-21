@@ -10,14 +10,27 @@ lazy_math: true   # posts are typeset when expanded, not while hidden
 <div class="home">
   <div class="panel panel-main">
   <div class="tabs" role="tablist" aria-label="Sections">
-    <button class="tab" role="tab" id="tab-projects" aria-controls="projects" aria-selected="true">Projects</button>
-    <button class="tab" role="tab" id="tab-blog" aria-controls="blog" aria-selected="false" tabindex="-1">Blog</button>
+    <button class="tab" role="tab" id="tab-blog" aria-controls="blog" aria-selected="true">Blog</button>
+    <button class="tab" role="tab" id="tab-projects" aria-controls="projects" aria-selected="false" tabindex="-1">Projects</button>
     <button class="tab" role="tab" id="tab-photos" aria-controls="photos" aria-selected="false" tabindex="-1">Photos</button>
     <button class="tab" role="tab" id="tab-links" aria-controls="links" aria-selected="false" tabindex="-1">Links</button>
     <button class="tab tab-end" role="tab" id="tab-bio" aria-controls="bio" aria-selected="false" tabindex="-1">Bio</button>
   </div>
 
-  <section class="tab-panel" id="projects" role="tabpanel" aria-labelledby="tab-projects">
+  <section class="tab-panel" id="blog" role="tabpanel" aria-labelledby="tab-blog">
+    <div class="blog-bar">
+      <div class="topic-list" role="group" aria-label="Filter posts by topic">
+        <button class="topic" type="button" data-topic="" aria-pressed="true">All</button>
+        {% assign topics = site.data.blog_categories | sort: "name" %}{% for topic in topics %}<button class="topic" type="button" data-topic="{{ topic.id }}" aria-pressed="false">{{ topic.name }}</button>
+        {% endfor %}
+      </div>
+      <span class="post-count" aria-live="polite">{{ site.posts.size }} posts</span>
+    </div>
+
+    {% include post-groups.html posts=site.posts %}
+  </section>
+
+  <section class="tab-panel" id="projects" role="tabpanel" aria-labelledby="tab-projects" hidden>
     <ul class="project-grid">
       {% for project in site.data.projects %}
       <li class="project{% if project.shape == 'rectangle' %} project-wide{% endif %}">
@@ -35,24 +48,6 @@ lazy_math: true   # posts are typeset when expanded, not while hidden
       <li><span class="date">{{ item.date | date: "%b %Y" }}</span><span>{{ item.text | markdownify | remove: "<p>" | remove: "</p>" | strip }}</span></li>
       {% endfor %}
     </ul>
-  </section>
-
-  <section class="tab-panel" id="blog" role="tabpanel" aria-labelledby="tab-blog" hidden>
-    {% assign causal = site.posts | where: "category", "causal-inference" | reverse %}
-    {% assign health = site.posts | where: "category", "public-health" %}
-
-    <div class="subtabs" role="tablist" aria-label="Blog topics">
-      <button class="subtab" role="tab" aria-selected="true" aria-controls="blog-causal">Causal inference</button>
-      <button class="subtab" role="tab" aria-selected="false" aria-controls="blog-health" tabindex="-1">Public health</button>
-    </div>
-
-    <div class="subtab-panel" id="blog-causal" role="tabpanel">
-      {% include post-groups.html posts=causal %}
-    </div>
-
-    <div class="subtab-panel" id="blog-health" role="tabpanel" hidden>
-      {% include post-groups.html posts=health %}
-    </div>
   </section>
 
   <section class="tab-panel" id="photos" role="tabpanel" aria-labelledby="tab-photos" hidden>
@@ -114,6 +109,22 @@ lazy_math: true   # posts are typeset when expanded, not while hidden
   var fromHash = document.getElementById('tab-' + location.hash.slice(1));
   if (fromHash) select(fromHash);
 
+  // blog topics: show only posts in the chosen subsection
+  var topics = Array.prototype.slice.call(document.querySelectorAll('.topic'));
+  var count = document.querySelector('.post-count');
+  function filterPosts(cat) {
+    topics.forEach(function (t) { t.setAttribute('aria-pressed', t.dataset.topic === cat); });
+    var shown = 0;
+    document.querySelectorAll('#blog .post-entry').forEach(function (p) {
+      p.hidden = !!cat && p.dataset.category !== cat;
+      if (!p.hidden) shown++;
+    });
+    count.textContent = shown + (shown === 1 ? ' post' : ' posts');
+  }
+  topics.forEach(function (t) {
+    t.addEventListener('click', function () { filterPosts(t.dataset.topic); });
+  });
+
   // typeset math when a post is expanded
   document.querySelectorAll('details.post-item').forEach(function (d) {
     d.addEventListener('toggle', function () {
@@ -123,17 +134,21 @@ lazy_math: true   # posts are typeset when expanded, not while hidden
       }
     });
   });
+  // "Show less" at the end of an expanded post folds it back up
+  document.querySelectorAll('.show-less').forEach(function (b) {
+    b.addEventListener('click', function () {
+      var d = b.closest('details');
+      d.open = false;
+      if (d.getBoundingClientRect().top < 0) d.scrollIntoView();
+    });
+  });
+
   // open a post linked as #post-slug
   var linked = location.hash && document.getElementById(location.hash.slice(1));
-  if (linked && linked.tagName === 'DETAILS') {
+  if (linked && linked.classList.contains('post-item')) {
     select(document.getElementById('tab-blog'));
-    var panel = linked.closest('.subtab-panel');
-    document.querySelectorAll('.subtab').forEach(function (o) {
-      var on = o.getAttribute('aria-controls') === panel.id;
-      o.setAttribute('aria-selected', on); o.tabIndex = on ? 0 : -1;
-      document.getElementById(o.getAttribute('aria-controls')).hidden = !on;
-    });
-    linked.open = true;
+    filterPosts('');
+    if (linked.tagName === 'DETAILS') linked.open = true;
     linked.scrollIntoView();
   }
 
@@ -160,16 +175,5 @@ lazy_math: true   # posts are typeset when expanded, not while hidden
     lb.querySelector('.lb-prev').hidden = lb.querySelector('.lb-next').hidden = links.length < 2;
   }
 
-  var subtabs = Array.prototype.slice.call(document.querySelectorAll('.subtab'));
-  subtabs.forEach(function (st) {
-    st.addEventListener('click', function () {
-      subtabs.forEach(function (o) {
-        var on = o === st;
-        o.setAttribute('aria-selected', on);
-        o.tabIndex = on ? 0 : -1;
-        document.getElementById(o.getAttribute('aria-controls')).hidden = !on;
-      });
-    });
-  });
 })();
 </script>

@@ -84,24 +84,37 @@ a.tile:hover { opacity: .85; text-decoration: none; }
 @media (max-width: 480px) { .tile-caption { font-size: 0.58rem; } .project-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); } .project-wide { grid-column: auto; } .project-wide .tile { aspect-ratio: 2 / 1; height: auto; min-height: 0; } }
 
 .section-title { margin: 20px 0 0; padding-bottom: 8px; border-bottom: 1px solid var(--rule); font-size: 0.95rem; font-weight: 400; letter-spacing: 0.08em; }
-.post-day { margin-top: 22px; }
-.post-day > .date { margin: 0 0 6px; color: var(--muted); font-size: 0.8rem; }
-.post-item { border-bottom: 1px solid var(--rule); }
-.post-item summary { list-style: none; cursor: pointer; padding: 10px 0; font-family: var(--serif); font-weight: 400; color: var(--text); }
+/* Blog feed */
+.blog-bar { display: flex; justify-content: space-between; align-items: baseline; gap: 16px; margin-top: 16px; padding-bottom: 4px; }
+.topic-list { display: flex; flex-wrap: wrap; gap: 4px 20px; }
+.topic { padding: 0 0 2px; border: 0; border-bottom: 1px solid transparent; background: none; font-family: var(--serif); font-size: 0.82rem; letter-spacing: 0.04em; line-height: 1.5; color: var(--muted); cursor: pointer; transition: color .15s, border-color .15s; }
+.topic:hover { color: var(--text); }
+.topic[aria-pressed="true"] { color: var(--text); border-bottom-color: var(--text); }
+.topic:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+.post-count { flex: none; font-size: 0.72rem; letter-spacing: 0.06em; color: var(--muted); }
+.post-feed { list-style: none; padding: 0; margin: 0; }
+.post-entry { border-bottom: 1px solid var(--rule); }
+.post-item summary { display: block; list-style: none; cursor: pointer; padding: 14px 0; }
 .post-item summary::-webkit-details-marker { display: none; }
-.post-item summary::after { content: "+"; float: right; color: var(--muted); font-weight: 400; }
-.post-item[open] summary::after { content: "\2212"; }
-.post-item summary:hover { color: var(--accent); }
+.post-short { padding: 14px 0; }
+.post-meta { display: block; font-size: 0.72rem; line-height: 1.4; letter-spacing: 0.05em; color: var(--muted); }
+.post-title { display: block; margin-top: 3px; font-family: var(--serif); font-size: 1rem; line-height: 1.45; color: var(--text); }
+.post-item summary:hover .post-title { color: var(--accent); }
+.post-excerpt { display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 3; overflow: hidden; margin-top: 4px; font-size: 0.85rem; line-height: 1.6; color: var(--muted); }
+.read-more { display: inline-block; margin-top: 6px; font-size: 0.78rem; letter-spacing: 0.03em; color: var(--accent); }
+.read-more::after { content: " \2192"; }
+.post-item summary:hover .read-more { text-decoration: underline; }
+.post-item[open] .post-excerpt, .post-item[open] .read-more { display: none; }
+.post-short-body { margin-top: 4px; font-size: 0.88rem; line-height: 1.6; }
+.post-short-body p { margin: 0; }
+.post-foot { display: flex; justify-content: space-between; gap: 12px; margin-top: 24px; font-size: 0.78rem; }
+.show-less { padding: 0; border: 0; background: none; font: inherit; color: var(--accent); cursor: pointer; }
+.show-less::before { content: "\2191  "; }
+.show-less:hover { text-decoration: underline; }
 .post-body { padding: 4px 0 20px; font-size: 0.92rem; overflow-wrap: anywhere; }
 .post mjx-container[display="true"] { overflow-x: auto; overflow-y: hidden; max-width: 100%; }
 .panel-main { min-width: 0; }
 .post-body > h2:first-child { margin-top: 8px; }
-.permalink { margin-top: 20px; font-size: 0.8rem; }
-.subtabs { display: flex; gap: 18px; margin-top: 12px; }
-.subtab { font-family: var(--serif); letter-spacing: 0.04em; font-size: 0.85rem; padding: 0 0 3px; border: 0; border-bottom: 1px solid transparent; background: none; color: var(--muted); cursor: pointer; }
-.subtab:hover { color: var(--text); }
-.subtab[aria-selected="true"] { color: var(--text); border-bottom-color: var(--text); }
-.subtab:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
 .news-list { list-style: none; padding: 0; margin: 10px 0 0; font-size: 0.8rem; line-height: 1.5; }
 .news-list li { margin-bottom: 5px; display: flex; gap: 8px; }
 .news-list .date { flex: none; }
