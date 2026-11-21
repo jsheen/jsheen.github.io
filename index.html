@@ -1,15 +1,23 @@
 ---
 layout: default
 title: Blog
+wide: true
 ---
-<p class="tagline">{{ site.description }}</p>
+<div class="home">
+  <aside class="panel panel-about">
+    {% include about.html %}
+  </aside>
 
-<ul class="post-list">
-  {% for post in site.posts %}
-  <li>
-    <span class="date">{{ post.date | date: "%b %-d, %Y" }}</span>
-    <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
-    {% if post.excerpt %}<p class="excerpt">{{ post.excerpt | strip_html | truncatewords: 30 }}</p>{% endif %}
-  </li>
-  {% endfor %}
-</ul>
+  <section class="panel panel-blog">
+    <h2 class="panel-title">Blog</h2>
+    <ul class="post-list">
+      {% for post in site.posts %}
+      <li>
+        <span class="date">{{ post.date | date: "%b %-d, %Y" }}</span>
+        <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+        {% if post.excerpt %}<p class="excerpt">{{ post.excerpt | strip_html | truncatewords: 30 }}</p>{% endif %}
+      </li>
+      {% endfor %}
+    </ul>
+  </section>
+</div>

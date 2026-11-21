@@ -3,17 +3,4 @@ layout: default
 title: About
 permalink: /about/
 ---
-<div class="about">
-  <img class="avatar" src="https://github.com/{{ site.github_username }}.png" alt="Photo of {{ site.author }}">
-  <div>
-    <h1>{{ site.author }}</h1>
-    <p>Postdoctoral Research Fellow, Department of Global Health and Population, Harvard T.H. Chan School of Public Health</p>
-    <p><strong>Interests:</strong> machine learning, causal inference, public health, single-panel cartoons</p>
-    <ul class="contact">
-      <li>Email: {{ site.email_display }}</li>
-      <li><a href="https://github.com/{{ site.github_username }}">GitHub</a></li>
-      <li><a href="{{ site.scholar_url }}">Google Scholar</a></li>
-      <li><a href="{{ site.linkedin_url }}">LinkedIn</a></li>
-    </ul>
-  </div>
-</div>
+{% include about.html %}

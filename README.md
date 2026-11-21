@@ -21,8 +21,9 @@ Images (e.g. cartoons) go in `assets/img/` and are embedded with `![caption](/as
 
 ## Structure
 
-- `index.html`: blog home (post list)
-- `about.md`: About page
+- `index.html`: home page: About panel (left) + blog post list (right)
+- `_includes/about.html`: About content (shared by the home page and `/about/`)
+- `about.md`: standalone About page (kept so old /about/ links still work)
 - `_layouts/`: page templates
 - `assets/css/style.css`: styling
 - `_config.yml`: site settings and links

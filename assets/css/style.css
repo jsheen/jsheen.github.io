@@ -45,6 +45,21 @@ blockquote { border-left: 3px solid var(--rule); margin-left: 0; padding-left: 1
 .contact { list-style: none; padding: 0; font-family: system-ui, sans-serif; font-size: 0.95rem; }
 .contact li { margin-bottom: 4px; }
 
+/* Home: About (left) + Blog (right) */
+body.wide .wrap { max-width: 1100px; }
+.home { display: grid; grid-template-columns: minmax(240px, 320px) 1fr; gap: 56px; align-items: start; }
+.panel-about { position: sticky; top: 24px; padding-right: 40px; border-right: 1px solid var(--rule); }
+.panel-about .about { flex-direction: column; gap: 16px; }
+.panel-about .avatar { width: 150px; height: 150px; }
+.panel-about h1 { font-size: 1.6rem; margin-bottom: 8px; }
+.panel-about p { font-size: 0.95rem; }
+.panel-title { margin-top: 0; font-size: 1.5rem; border-bottom: 1px solid var(--rule); padding-bottom: 8px; }
+.panel-blog .post-list { margin-top: 24px; }
+@media (max-width: 760px) {
+  .home { grid-template-columns: 1fr; gap: 32px; }
+  .panel-about { position: static; padding-right: 0; border-right: 0; border-bottom: 1px solid var(--rule); padding-bottom: 24px; }
+}
+
 .site-footer { border-top: 1px solid var(--rule); margin-top: 60px; padding: 20px 0; color: var(--muted); font-family: system-ui, sans-serif; font-size: 0.85rem; }
 .site-footer .wrap { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 10px; }
 .site-footer .links a { margin-left: 14px; color: var(--muted); }
