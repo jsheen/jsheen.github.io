@@ -5,7 +5,7 @@
     <clipPath id="c"><circle cx="175" cy="480" r="52"/></clipPath>
   </defs>
   <rect width="600" height="600" fill="#eef4f8"/>
-  <g transform="translate(300 300) scale(0.88) translate(-276 -314)">
+  <g transform="translate(282 300) scale(0.88) translate(-276 -314)">
 
   <!-- spillover ripples from the treated unit -->
   <g fill="none" stroke="#f08a7e" stroke-width="8" stroke-linecap="round" stroke-dasharray="4 22">
