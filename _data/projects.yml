@@ -11,22 +11,10 @@
   image: /assets/img/pixel-mosquito.svg
   shape: square
 
-- title: "ThimbleTheater"
-  caption: "ThimbleTheater"
-  link: "https://thimbletheater.com/"
-  image: /assets/img/thimble.svg
-  shape: square
-
-- title: "GamesFamilyConvert"
-  caption: "GamesFamilyConvert"
-  link: "https://github.com/jsheen/GamesFamilyConvert"
-  image: /assets/img/boardgame.svg
-  shape: square
-
-- title: "PushPin"
-  caption: "PushPin"
-  link: "https://github.com/jsheen/PushPin"
-  image: /assets/img/pushpin.svg
+- title: "InterferenceAudit"
+  caption: "InterferenceAudit"
+  link: "https://github.com/jsheen/InterferenceAudit"
+  image: /assets/img/interference.svg
   shape: square
 
 - title: "Single-panel cartoons"

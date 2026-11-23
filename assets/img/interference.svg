@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600" width="600" height="600" role="img" aria-label="A treated unit spilling over onto its neighbors">
+  <defs>
+    <clipPath id="a"><circle cx="440" cy="175" r="52"/></clipPath>
+    <clipPath id="b"><circle cx="455" cy="405" r="52"/></clipPath>
+    <clipPath id="c"><circle cx="175" cy="480" r="52"/></clipPath>
+  </defs>
+  <rect width="600" height="600" fill="#eef4f8"/>
+  <g transform="translate(300 300) scale(0.88) translate(-276 -314)">
+
+  <!-- spillover ripples from the treated unit -->
+  <g fill="none" stroke="#f08a7e" stroke-width="8" stroke-linecap="round" stroke-dasharray="4 22">
+    <circle cx="250" cy="300" r="118" opacity=".7"/>
+    <circle cx="250" cy="300" r="165" opacity=".4"/>
+  </g>
+
+  <!-- network ties -->
+  <g stroke="#2f2f2f" stroke-width="9" stroke-linecap="round">
+    <line x1="250" y1="300" x2="440" y2="175"/>
+    <line x1="250" y1="300" x2="455" y2="405"/>
+    <line x1="250" y1="300" x2="175" y2="480"/>
+  </g>
+
+  <!-- neighbors: untreated (blue), tinted on the side facing the treated unit -->
+  <circle cx="440" cy="175" r="52" fill="#bcd7ee"/>
+  <circle cx="390" cy="208" r="52" fill="#f8c1b8" clip-path="url(#a)"/>
+  <circle cx="440" cy="175" r="52" fill="none" stroke="#2f2f2f" stroke-width="9"/>
+  <circle cx="455" cy="405" r="52" fill="#bcd7ee"/>
+  <circle cx="403" cy="379" r="52" fill="#f8c1b8" clip-path="url(#b)"/>
+  <circle cx="455" cy="405" r="52" fill="none" stroke="#2f2f2f" stroke-width="9"/>
+  <circle cx="175" cy="480" r="52" fill="#bcd7ee"/>
+  <circle cx="198" cy="425" r="52" fill="#f8c1b8" clip-path="url(#c)"/>
+  <circle cx="175" cy="480" r="52" fill="none" stroke="#2f2f2f" stroke-width="9"/>
+
+  <!-- treated unit -->
+  <circle cx="250" cy="300" r="76" fill="#f08a7e" stroke="#2f2f2f" stroke-width="10"/>
+  </g>
+</svg>

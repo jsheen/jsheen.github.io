@@ -1,9 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600" width="600" height="600" role="img" aria-label="Dice">
-  <rect width="600" height="600" fill="#f4ede2"/>
-  <g transform="translate(300 300) rotate(-12)" stroke="#2f2f2f" stroke-width="10" stroke-linejoin="round">
-    <rect x="-130" y="-130" width="260" height="260" rx="52" fill="#fffdf8"/>
-    <g fill="#2f2f2f" stroke="none">
-      <circle cx="-62" cy="-62" r="22"/><circle cx="0" cy="0" r="22"/><circle cx="62" cy="62" r="22"/>
-    </g>
-  </g>
-</svg>
