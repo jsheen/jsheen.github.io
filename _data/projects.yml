@@ -17,6 +17,12 @@
   image: /assets/img/interference.svg
   shape: square
 
+- title: "PushPin"
+  caption: "PushPin"
+  link: "https://github.com/jsheen/PushPin"
+  image: /assets/img/pushpin.svg
+  shape: square
+
 - title: "Single-panel cartoons"
   caption: "The New Yorker"
   link: "https://www.justinsheencartoonist.com/"
