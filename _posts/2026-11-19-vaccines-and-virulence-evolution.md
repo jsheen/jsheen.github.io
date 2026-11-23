@@ -1,6 +1,6 @@
 ---
 layout: post
-category: public-health
+category: biotech
 title: "Vaccines and virulence evolution"
 date: 2026-11-19 09:05:00 -0500
 tags: [vaccines, evolution]

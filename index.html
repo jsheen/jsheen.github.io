@@ -21,7 +21,7 @@ lazy_math: true   # posts are typeset when expanded, not while hidden
     <div class="blog-bar">
       <div class="topic-list" role="group" aria-label="Filter posts by topic">
         <button class="topic" type="button" data-topic="" aria-pressed="true">All</button>
-        {% assign topics = site.data.blog_categories | sort: "name" %}{% for topic in topics %}<button class="topic" type="button" data-topic="{{ topic.id }}" aria-pressed="false">{{ topic.name }}</button>
+        {% assign topics = site.data.blog_categories %}{% for topic in topics %}<button class="topic" type="button" data-topic="{{ topic.id }}" aria-pressed="false">{{ topic.name }}</button>
         {% endfor %}
       </div>
       <span class="post-count" aria-live="polite">{{ site.posts.size }} posts</span>

@@ -1,6 +1,6 @@
 ---
 layout: post
-category: public-health
+category: biotech
 title: "Biological complexity"
 date: 2026-11-21 10:00:00 -0500
 tags: [biology, ai]
